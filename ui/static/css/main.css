@@ -33,7 +33,7 @@ header {
   justify-content: center;
   align-items: center;
   padding: 30px 20px;
-  background: url('img/hero.jpg') no-repeat center center;
+  /* background: url('img/hero.jpg') no-repeat center center; */
   background-size: cover;
   background-position: center;
 }

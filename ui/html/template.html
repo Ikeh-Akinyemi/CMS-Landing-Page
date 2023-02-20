@@ -1,0 +1,80 @@
+{{ define "template.html"}}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{.PageTitle}}</title>
+    <link rel="stylesheet" href="/static/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <style>
+    header {
+      background: url("{{.Hero.ImageURL}}") no-repeat center center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 20px;
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="hero">
+        {{with .Hero}}
+        <h1>{{.Headline}}</h1>
+        <p>{{.Description}}</p>
+        <a href="#" class="btn">{{.ButtonLabel}}</a>
+      </div>
+      {{end}}
+    </header>
+    <main>
+      <section class="features">
+        {{ range .Features }}
+        <div class="feature-box">
+          <i class="fa fa-ship"></i>
+          <h2>{{.Headline}}</h2>
+          <p>{{.Description}}</p>
+        </div>
+        {{ end }}
+      </section>
+      <section class="products">
+        <h2>Featured Products</h2>
+        {{ range .Products}}
+        <div class="product">
+          <img src="{{.ImageURL}}" alt="{{ .ImgAltText}}" />
+          <h3>{{.Name}}</h3>
+          <p>{{.Price}}</p>
+          <a href="#" class="btn">Add to Cart</a>
+        </div>
+        {{end}}
+      </section>
+    </main>
+    <footer>
+      <div class="social-links">
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-youtube"></i></a>
+      </div>
+      <p>&copy; 2023 My Ecommerce Site. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>
+{{ end}}
