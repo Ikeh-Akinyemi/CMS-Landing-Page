@@ -33,7 +33,6 @@ go get github.com/bmizerany/pat
 
 ```sh
 export BUTTERCMS_API_TOKEN="your_api_token"
-export BUTTERCMS_API_SECRET="your_api_secret"
 ```
 5. Run the application:
 ```sh
