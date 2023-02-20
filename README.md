@@ -32,7 +32,7 @@ go get github.com/bmizerany/pat
 4. Set your ButterCMS API keys as environment variables:
 
 ```sh
-export BUTTERCMS_API_TOKEN="your_api_token"
+export BUTTERCMS_API_TOKEN=<your_api_token>
 ```
 5. Run the application:
 ```sh
