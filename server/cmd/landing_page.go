@@ -5,6 +5,7 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"os"
 
 	ButterCMS "github.com/ButterCMS/buttercms-go"
 	"github.com/ButterCMS/go-landing-page/server/internal/model"
@@ -12,7 +13,7 @@ import (
 )
 
 func landingPage(w http.ResponseWriter, r *http.Request) {
-	ButterCMS.SetAuthToken("b72538579cdca0712d47a3e9b0447e41d19913be")
+	ButterCMS.SetAuthToken(os.Getenv("BUTTERCMS_API_TOKEN"))
 	data := map[string]string{}
 	res, err := ButterCMS.GetPage("*", "fruit-veggie-landing-page", data)
 	if err != nil {
