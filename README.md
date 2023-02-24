@@ -1,6 +1,7 @@
 <p align="center">
   <img src="ui/static/img/uLdEqE1c.png" alt="Snippetbox" width="700"/>
 </p>
+
 # E-commerce Landing Page with Golang and ButterCMS
 This project is a tutorial that shows how to create an e-commerce landing page using Golang and ButterCMS. ButterCMS is an API-based content management system that makes it simple to integrate with front-ends created by developers.
 
