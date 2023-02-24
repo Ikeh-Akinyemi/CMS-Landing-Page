@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="ui/static/img/uLdEqE1c.png" alt="Snippetbox" width="700"/>
+  <img src="ui/static/img/uLdEqE1c.png" alt="ButterCMS-landing-page" width="700"/>
 </p>
 
 # E-commerce Landing Page with Golang and ButterCMS
