@@ -30,10 +30,18 @@
     <header>
       <nav>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Shop</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Contact</a></li>
+          <li>
+            <a href="#"><i class="fa fa-home"></i> Home</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-shopping-cart"></i> My cart</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-info-circle"></i> About Us</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-envelope"></i> Contact</a>
+          </li>
         </ul>
       </nav>
       <div class="hero">
@@ -46,14 +54,21 @@
     </header>
     <main>
       <section class="features">
-        {{ range .Features }}
+        {{ range $index, $feature := .Features }}
         <div class="feature-box">
+          {{ if eq $index 0 }}
           <i class="fa fa-ship"></i>
-          <h2>{{.Headline}}</h2>
-          <p>{{.Description}}</p>
+          {{ else if eq $index 1 }}
+          <i class="fa fa-gift"></i>
+          {{ else if eq $index 2 }}
+          <i class="fa fa-headphones"></i>
+          {{ end }}
+          <h2>{{ $feature.Headline }}</h2>
+          <p>{{ $feature.Description }}</p>
         </div>
         {{ end }}
       </section>
+
       <section class="products">
         <h2>Featured Products</h2>
         {{ range .Products}}
