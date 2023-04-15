@@ -14,14 +14,9 @@ import (
 
 func landingPage(w http.ResponseWriter, r *http.Request) {
 	ButterCMS.SetAuthToken(os.Getenv("BUTTERCMS_API_TOKEN"))
-	data := map[string]string{}
+	opts := map[string]string{}
 
-	result, err := ButterCMS.GetPage("*", "fruit-veggie-landing-page", data)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	products, err := ButterCMS.GetContentFields([]string{"products"}, data)
+	result, err := ButterCMS.GetPage("*", "fruit-veggie-landing-page", opts)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -29,7 +24,7 @@ func landingPage(w http.ResponseWriter, r *http.Request) {
 	templateData := model.LandingPage{}
 	templateData.PageTitle, _ = utils.GetValue[string](result.Page.Fields, "page_title")
 	templateData.Features = utils.ProcessFeaturesSection(result.Page.Fields)
-	templateData.Products = utils.ProcessProductsSection(products.Data)
+	templateData.Products = utils.ProcessProductsSection(result.Page.Fields)
 	templateData.Hero = utils.ProcessHeroSection(result.Page.Fields)
 
 	render(w, r, "./ui/html/template.html", &templateData)
